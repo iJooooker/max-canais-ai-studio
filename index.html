@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="no-referrer" />
     <title>MAX CANAIS - TV, Filmes e Séries</title>
+    <link rel="icon" type="image/png" href="https://drive.google.com/uc?export=view&id=1QVDpASKZxOrdqO3ouGnrWgZXWswUGBT0" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -11,7 +13,7 @@
           extend: {
             colors: {
               brand: {
-                red: '#E50914',
+                red: '#E50914', // Netflix-like red, very strong
                 dark: '#141414',
                 gray: '#222222',
               }
@@ -24,13 +26,16 @@
       }
     </script>
     <style>
+      /* Smooth scrolling for anchor links */
       html {
         scroll-behavior: smooth;
       }
 
+      /* Scroll Animation Classes */
       .fade-up {
         opacity: 0;
         transform: translateY(40px);
+        /* Smoother cubic-bezier for a more premium feel (ease out expo/quart) */
         transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1), transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
         will-change: opacity, transform;
       }
@@ -48,25 +53,26 @@
         opacity: 1;
       }
 
+      /* Refined Stagger delays to prevent elements appearing simultaneously */
+      /* Increased intervals for a more noticeable cascade effect */
       .delay-100 { transition-delay: 150ms; }
       .delay-200 { transition-delay: 300ms; }
       .delay-300 { transition-delay: 450ms; }
       .delay-400 { transition-delay: 600ms; }
       .delay-500 { transition-delay: 750ms; }
     </style>
-    <script type="importmap">
-    {
-      "imports": {
-        "react/": "https://esm.sh/react@^19.2.3/",
-        "react": "https://esm.sh/react@^19.2.3",
-        "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
-        "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
-      }
-    }
-    </script>
-  </head>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+</head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
   </body>
 </html>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Tv } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import Button from './Button';
+import { LOGO_URL } from '../constants';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -51,12 +52,11 @@ const Navbar: React.FC = () => {
           onClick={(e) => handleNavClick(e, '#inicio')}
           className="flex items-center gap-2 group z-50 cursor-pointer"
         >
-            <div className={`p-1.5 rounded-lg transition-colors ${isScrolled ? 'bg-brand-red' : 'bg-brand-red/80'} group-hover:scale-110 transition-transform duration-300`}>
-                <Tv className="w-6 h-6 text-white" />
-            </div>
-            <span className="text-2xl font-bold text-white tracking-tight drop-shadow-md">
-                MAX <span className="text-brand-red">CANAIS</span>
-            </span>
+            <img 
+              src={LOGO_URL} 
+              alt="MAX CANAIS" 
+              className="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
+            />
         </a>
 
         {/* Desktop Menu */}

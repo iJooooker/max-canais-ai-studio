@@ -1,5 +1,5 @@
 import React from 'react';
-import { PRICING_PLANS } from '../constants';
+import { PRICING_PLANS, WHATSAPP_BASE_URL } from '../constants';
 import Button from './Button';
 import { Check, ShieldCheck, Crown, Star } from 'lucide-react';
 
@@ -37,6 +37,10 @@ const Pricing: React.FC = () => {
                containerClasses = "border-amber-400/50 shadow-[0_0_35px_rgba(251,191,36,0.2)] hover:shadow-[0_0_50px_rgba(251,191,36,0.3)] z-0 hover:z-10 hover:scale-[1.02] ring-1 ring-amber-400/40";
                buttonVariant = 'outline'; // Will override styling below
              }
+
+             // Criar mensagem personalizada para o WhatsApp
+             const whatsappMessage = `Olá! Tenho interesse no *Plano ${plan.title}* de R$${plan.price}. Como faço para assinar?`;
+             const whatsappLink = `${WHATSAPP_BASE_URL}?text=${encodeURIComponent(whatsappMessage)}`;
 
              return (
               <div 
@@ -78,6 +82,7 @@ const Pricing: React.FC = () => {
                 </ul>
 
                 <Button 
+                  href={whatsappLink}
                   variant={buttonVariant} 
                   fullWidth 
                   className={

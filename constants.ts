@@ -4,7 +4,12 @@ import { Tv, Film, Smartphone, Wifi, CreditCard, MessageCircle, ShieldCheck, Tro
 export const LOGO_URL = "https://drive.google.com/uc?export=view&id=18gaX3A78fhDWjBsurVrGx_UgkxDUu2lr";
 export const FAVICON_URL = "https://drive.google.com/uc?export=view&id=1QVDpASKZxOrdqO3ouGnrWgZXWswUGBT0";
 
-export const WHATSAPP_LINK = "https://wa.me/5519999505223?text=Ol%C3%A1%2C+gostaria+de+saber+sobre+os+canais";
+// Configuração do WhatsApp
+export const WHATSAPP_NUMBER = "5519999505223";
+export const WHATSAPP_BASE_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
+// Link padrão (genérico)
+export const WHATSAPP_LINK = `${WHATSAPP_BASE_URL}?text=${encodeURIComponent("Olá, gostaria de saber sobre os canais")}`;
+
 export const PHONE_NUMBER = "(19) 99950-5223";
 
 export const BENEFITS = [

@@ -82,16 +82,19 @@ export const TESTIMONIALS = [
   {
     name: "João L.",
     role: "Cliente há 6 meses",
-    text: "Assisto tudo com qualidade, sem travar. Recomendo demais, o atendimento é nota 10!"
+    text: "Assisto tudo com qualidade, sem travar. Recomendo demais, o atendimento é nota 10!",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&h=150&auto=format&fit=crop"
   },
   {
     name: "Mariana S.",
     role: "Cliente há 1 ano",
-    text: "Cancelei minha TV a cabo e não me arrependo. Economia gigante e tenho muito mais opções."
+    text: "Cancelei minha TV a cabo e não me arrependo. Economia gigante e tenho muito mais opções.",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&h=150&auto=format&fit=crop"
   },
   {
     name: "Ricardo M.",
     role: "Cliente recente",
-    text: "O teste grátis me convenceu. A imagem é perfeita e roda liso no meu Firestick."
+    text: "O teste grátis me convenceu. A imagem é perfeita e roda liso no meu Firestick.",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&h=150&auto=format&fit=crop"
   }
 ];

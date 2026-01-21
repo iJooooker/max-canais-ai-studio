@@ -1,7 +1,7 @@
 import React from 'react';
 import { PRICING_PLANS } from '../constants';
 import Button from './Button';
-import { Check } from 'lucide-react';
+import { Check, ShieldCheck } from 'lucide-react';
 
 const Pricing: React.FC = () => {
   return (
@@ -16,7 +16,7 @@ const Pricing: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto items-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto items-center mb-16">
           {PRICING_PLANS.map((plan, index) => {
              const delayClass = index === 0 ? 'delay-100' : index === 1 ? 'delay-200' : 'delay-300';
              return (
@@ -70,6 +70,22 @@ const Pricing: React.FC = () => {
             );
           })}
         </div>
+
+        {/* Guarantee Badge */}
+        <div className="max-w-3xl mx-auto fade-up delay-300">
+          <div className="bg-green-50 border border-green-200 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-center gap-6 shadow-sm hover:shadow-md transition-shadow">
+             <div className="bg-white p-4 rounded-full shadow-sm">
+                <ShieldCheck className="w-10 h-10 text-green-600" />
+             </div>
+             <div className="text-center md:text-left">
+                <h4 className="text-xl font-bold text-gray-900 mb-1">Garantia de 7 Dias</h4>
+                <p className="text-gray-600">
+                  Assine sem medo! Se você não ficar satisfeito nos primeiros 7 dias, devolvemos 100% do seu dinheiro. Sem letras miúdas.
+                </p>
+             </div>
+          </div>
+        </div>
+
       </div>
     </section>
   );

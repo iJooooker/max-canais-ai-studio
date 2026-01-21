@@ -9,7 +9,7 @@ const Testimonials: React.FC = () => {
         <div className="text-center mb-16 fade-up">
           <div className="flex items-center justify-center gap-1 mb-2">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+              <Star key={i} className="w-6 h-6 text-yellow-400 fill-current" />
             ))}
           </div>
           <h2 className="text-3xl font-bold text-gray-900 mb-2">
@@ -22,18 +22,30 @@ const Testimonials: React.FC = () => {
           {TESTIMONIALS.map((testimonial, index) => {
             const delayClass = index === 0 ? 'delay-100' : index === 1 ? 'delay-200' : 'delay-300';
             return (
-              <div key={index} className={`bg-gray-50 p-8 rounded-2xl relative hover:bg-white hover:shadow-lg transition-all duration-300 fade-up ${delayClass}`}>
+              <div key={index} className={`bg-gray-50 p-8 rounded-2xl relative hover:bg-white hover:shadow-xl transition-all duration-300 fade-up ${delayClass} border border-gray-100`}>
                 <Quote className="w-10 h-10 text-brand-red/10 absolute top-6 right-6" />
-                <p className="text-gray-700 italic mb-6 relative z-10">
+                
+                {/* 5 Stars inside card */}
+                <div className="flex gap-1 mb-4">
+                   {[...Array(5)].map((_, i) => (
+                     <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                   ))}
+                </div>
+
+                <p className="text-gray-700 italic mb-8 relative z-10 leading-relaxed min-h-[80px]">
                   "{testimonial.text}"
                 </p>
-                <div className="flex items-center gap-4">
-                   <div className="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center font-bold text-gray-600">
-                      {testimonial.name.charAt(0)}
-                   </div>
+                
+                <div className="flex items-center gap-4 pt-4 border-t border-gray-200">
+                   <img 
+                     src={testimonial.image} 
+                     alt={testimonial.name}
+                     className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-md"
+                     loading="lazy"
+                   />
                    <div>
                      <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
-                     <p className="text-sm text-gray-500">{testimonial.role}</p>
+                     <p className="text-xs text-gray-500 font-medium uppercase tracking-wide">{testimonial.role}</p>
                    </div>
                 </div>
               </div>

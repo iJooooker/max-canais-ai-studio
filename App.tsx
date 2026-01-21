@@ -8,6 +8,7 @@ import Testimonials from './components/Testimonials';
 import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer';
 import SocialProof from './components/SocialProof';
+import CostComparison from './components/CostComparison';
 import { WHATSAPP_LINK } from './constants';
 import { MessageCircle } from 'lucide-react';
 
@@ -33,6 +34,7 @@ const App: React.FC = () => {
       <Hero />
       <Benefits />
       <TargetAudience />
+      <CostComparison />
       <Pricing />
       <Testimonials />
       <FinalCTA />

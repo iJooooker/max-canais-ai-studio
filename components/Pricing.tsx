@@ -5,7 +5,7 @@ import { Check } from 'lucide-react';
 
 const Pricing: React.FC = () => {
   return (
-    <section className="py-24 bg-gradient-to-b from-gray-100 to-white" id="planos">
+    <section className="py-24 bg-gradient-to-b from-gray-100 to-white scroll-mt-20" id="planos">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 fade-up">
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">

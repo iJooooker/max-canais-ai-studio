@@ -4,7 +4,7 @@ import { PlayCircle } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative bg-brand-dark min-h-[90vh] flex items-center justify-center overflow-hidden">
+    <section id="inicio" className="relative bg-brand-dark min-h-[90vh] flex items-center justify-center overflow-hidden">
       {/* Background Image with Enhanced Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-brand-red/30 via-transparent to-transparent"></div>
       </div>
 
-      <div className="container mx-auto px-4 z-10 relative text-center md:text-left">
+      <div className="container mx-auto px-4 z-10 relative text-center md:text-left pt-20 md:pt-0">
         <div className="max-w-3xl">
           <div className="inline-block bg-brand-red/20 border border-brand-red/50 rounded-full px-4 py-1 mb-6 backdrop-blur-sm fade-up visible">
             <span className="text-brand-red font-bold text-sm tracking-wide uppercase">⚡ Oferta por tempo limitado</span>

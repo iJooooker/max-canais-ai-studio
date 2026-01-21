@@ -4,7 +4,7 @@ import { Star, Quote } from 'lucide-react';
 
 const Testimonials: React.FC = () => {
   return (
-    <section className="py-20 bg-white border-t border-gray-100">
+    <section id="depoimentos" className="py-20 bg-white border-t border-gray-100 scroll-mt-24">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 fade-up">
           <div className="flex items-center justify-center gap-1 mb-2">

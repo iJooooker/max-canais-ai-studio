@@ -4,7 +4,7 @@ import { CheckCircle2 } from 'lucide-react';
 
 const TargetAudience: React.FC = () => {
   return (
-    <section className="py-24 bg-brand-gray text-white relative overflow-hidden">
+    <section id="para-voce" className="py-24 bg-brand-gray text-white relative overflow-hidden scroll-mt-20">
       {/* Enhanced Decorative Background */}
       <div className="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-brand-red/20 rounded-full blur-[100px] animate-pulse-slow"></div>
       <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-96 h-96 bg-blue-900/20 rounded-full blur-[100px] animate-pulse-slow"></div>

@@ -29,12 +29,12 @@ const Pricing: React.FC = () => {
              let buttonVariant: 'primary' | 'outline' | 'secondary' = 'outline';
              
              if (isTrimestral) {
-               // Red Glow for "Mais Popular"
-               containerClasses = "border-brand-red shadow-[0_0_30px_rgba(229,9,20,0.15)] hover:shadow-[0_0_40px_rgba(229,9,20,0.25)] scale-105 z-10 ring-1 ring-brand-red/50";
+               // Red Glow for "Mais Popular" - Slightly enhanced opacity for better visibility
+               containerClasses = "border-brand-red shadow-[0_0_35px_rgba(229,9,20,0.2)] hover:shadow-[0_0_50px_rgba(229,9,20,0.3)] scale-105 z-10 ring-1 ring-brand-red/50";
                buttonVariant = 'primary';
              } else if (isAnual) {
-               // Gold/Amber Glow for "VIP/Annual"
-               containerClasses = "border-amber-400/50 shadow-[0_0_30px_rgba(251,191,36,0.15)] hover:shadow-[0_0_40px_rgba(251,191,36,0.25)] z-0 hover:z-10 hover:scale-[1.02] ring-1 ring-amber-400/30";
+               // Gold/Amber Glow for "VIP/Annual" - Enhanced glow
+               containerClasses = "border-amber-400/50 shadow-[0_0_35px_rgba(251,191,36,0.2)] hover:shadow-[0_0_50px_rgba(251,191,36,0.3)] z-0 hover:z-10 hover:scale-[1.02] ring-1 ring-amber-400/40";
                buttonVariant = 'outline'; // Will override styling below
              }
 

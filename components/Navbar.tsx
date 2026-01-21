@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import Button from './Button';
-import { LOGO_URL } from '../constants';
+import Logo from './Logo';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -50,13 +50,9 @@ const Navbar: React.FC = () => {
         <a 
           href="#inicio" 
           onClick={(e) => handleNavClick(e, '#inicio')}
-          className="flex items-center gap-2 group z-50 cursor-pointer"
+          className="flex items-center gap-2 group z-50 cursor-pointer hover:opacity-90 transition-opacity"
         >
-            <img 
-              src={LOGO_URL} 
-              alt="MAX CANAIS" 
-              className="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
-            />
+            <Logo />
         </a>
 
         {/* Desktop Menu */}

@@ -23,7 +23,7 @@ const App: React.FC = () => {
         }
       });
     }, { 
-      threshold: 0.15, // Slightly increased threshold so elements don't trigger too early
+      threshold: 0.1, // Reduced threshold to trigger sooner (10% visibility)
       rootMargin: "0px 0px -50px 0px" // Offset to trigger animation slightly before element is fully in view
     });
 

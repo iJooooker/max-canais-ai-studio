@@ -1,13 +1,16 @@
 import React from 'react';
-import { PHONE_NUMBER, WHATSAPP_LINK, LOGO_URL } from '../constants';
+import { PHONE_NUMBER, WHATSAPP_LINK } from '../constants';
 import { MessageCircle } from 'lucide-react';
+import Logo from './Logo';
 
 const Footer: React.FC = () => {
   return (
     <footer className="bg-brand-dark text-gray-400 py-12 border-t border-gray-800">
       <div className="container mx-auto px-4 text-center">
         <div className="mb-6 flex flex-col items-center">
-           <img src={LOGO_URL} alt="MAX CANAIS" className="h-16 w-auto mb-4 opacity-90 object-contain" />
+           <div className="mb-4 scale-110 opacity-90">
+             <Logo variant="footer" />
+           </div>
            <p className="text-sm">O melhor do entretenimento no seu dispositivo.</p>
         </div>
         

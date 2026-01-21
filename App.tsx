@@ -18,10 +18,16 @@ const App: React.FC = () => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
+          // Stop observing once the element is visible to save resources and ensure it stays visible
+          observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1 });
+    }, { 
+      threshold: 0.15, // Slightly increased threshold so elements don't trigger too early
+      rootMargin: "0px 0px -50px 0px" // Offset to trigger animation slightly before element is fully in view
+    });
 
+    // Select all elements with fade animation classes
     const animatedElements = document.querySelectorAll('.fade-up, .fade-in');
     animatedElements.forEach(el => observer.observe(el));
 

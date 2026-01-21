@@ -1,7 +1,7 @@
 import React from 'react';
 import { PRICING_PLANS } from '../constants';
 import Button from './Button';
-import { Check, ShieldCheck } from 'lucide-react';
+import { Check, ShieldCheck, Crown, Star } from 'lucide-react';
 
 const Pricing: React.FC = () => {
   return (
@@ -19,27 +19,49 @@ const Pricing: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto items-center mb-16">
           {PRICING_PLANS.map((plan, index) => {
              const delayClass = index === 0 ? 'delay-100' : index === 1 ? 'delay-200' : 'delay-300';
+             
+             // Identify specific plans for styling
+             const isTrimestral = index === 1;
+             const isAnual = index === 2;
+             
+             // Define glow styles based on plan type
+             let containerClasses = "border-gray-200 shadow-lg hover:shadow-xl";
+             let buttonVariant: 'primary' | 'outline' | 'secondary' = 'outline';
+             
+             if (isTrimestral) {
+               // Red Glow for "Mais Popular"
+               containerClasses = "border-brand-red shadow-[0_0_30px_rgba(229,9,20,0.15)] hover:shadow-[0_0_40px_rgba(229,9,20,0.25)] scale-105 z-10 ring-1 ring-brand-red/50";
+               buttonVariant = 'primary';
+             } else if (isAnual) {
+               // Gold/Amber Glow for "VIP/Annual"
+               containerClasses = "border-amber-400/50 shadow-[0_0_30px_rgba(251,191,36,0.15)] hover:shadow-[0_0_40px_rgba(251,191,36,0.25)] z-0 hover:z-10 hover:scale-[1.02] ring-1 ring-amber-400/30";
+               buttonVariant = 'outline'; // Will override styling below
+             }
+
              return (
               <div 
                 key={index} 
-                className={`relative bg-white rounded-3xl p-8 border transition-all duration-300 fade-up ${delayClass}
-                  ${plan.highlight 
-                    ? 'border-brand-red shadow-2xl scale-105 z-10' 
-                    : 'border-gray-200 shadow-lg hover:shadow-xl'
-                  }`}
+                className={`relative bg-white rounded-3xl p-8 border transition-all duration-500 fade-up ${delayClass} ${containerClasses}`}
               >
-                {plan.highlight && (
-                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-brand-red text-white text-sm font-bold px-4 py-1 rounded-full uppercase tracking-wider shadow-md">
-                    Mais Popular
+                {/* Badges */}
+                {isTrimestral && (
+                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-brand-red text-white text-sm font-bold px-4 py-1 rounded-full uppercase tracking-wider shadow-lg shadow-brand-red/40 flex items-center gap-1">
+                    <Star className="w-3 h-3 fill-current" /> Mais Popular
                   </div>
                 )}
+                {isAnual && (
+                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-amber-400 text-white text-sm font-bold px-4 py-1 rounded-full uppercase tracking-wider shadow-lg shadow-amber-400/40 flex items-center gap-1">
+                    <Crown className="w-3 h-3 fill-current" /> Melhor Valor
+                  </div>
+                )}
+                
                 {plan.savings && (
-                   <div className="absolute top-4 right-4 bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded">
+                   <div className={`absolute top-4 right-4 text-xs font-bold px-2 py-1 rounded ${isAnual ? 'bg-amber-100 text-amber-700' : 'bg-green-100 text-green-700'}`}>
                      {plan.savings}
                    </div>
                 )}
 
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.title}</h3>
+                <h3 className={`text-2xl font-bold mb-2 ${isAnual ? 'text-amber-500' : 'text-gray-900'}`}>{plan.title}</h3>
                 <div className="flex items-baseline mb-6">
                   <span className="text-sm text-gray-500 font-medium">R$</span>
                   <span className="text-5xl font-extrabold text-gray-900">{plan.price}</span>
@@ -49,16 +71,22 @@ const Pricing: React.FC = () => {
                 <ul className="space-y-4 mb-8">
                   {plan.features.map((feature, idx) => (
                     <li key={idx} className="flex items-center text-gray-600">
-                      <Check className="w-5 h-5 text-brand-red mr-3 flex-shrink-0" />
+                      <Check className={`w-5 h-5 mr-3 flex-shrink-0 ${isAnual ? 'text-amber-400' : 'text-brand-red'}`} />
                       <span>{feature}</span>
                     </li>
                   ))}
                 </ul>
 
                 <Button 
-                  variant={plan.highlight ? 'primary' : 'outline'} 
+                  variant={buttonVariant} 
                   fullWidth 
-                  className={plan.highlight ? 'shadow-red-500/40' : '!text-gray-900 !border-gray-300 hover:!border-brand-red hover:!text-brand-red'}
+                  className={
+                    isTrimestral 
+                      ? 'shadow-red-500/40' 
+                      : isAnual 
+                        ? '!border-amber-400 !text-amber-500 hover:!bg-amber-400 hover:!text-white hover:shadow-amber-400/30' 
+                        : '!text-gray-900 !border-gray-300 hover:!border-brand-red hover:!text-brand-red'
+                  }
                 >
                   Assinar Agora
                 </Button>

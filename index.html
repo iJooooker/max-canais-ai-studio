@@ -5,10 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="referrer" content="no-referrer" />
     <title>MAX CANAIS - TV, Filmes e Séries</title>
-    <!-- Adicionado ?v=2 para forçar o navegador a atualizar o ícone -->
-    <link rel="icon" type="image/png" href="/logo-max.png?v=2">
-    <link rel="shortcut icon" type="image/png" href="/logo-max.png?v=2">
-    <link rel="apple-touch-icon" href="/logo-max.png?v=2">
+    
+    <!-- Configuração do Favicon com IDs para o script de fallback -->
+    <link id="favicon" rel="icon" type="image/png" href="/logo-max.png?v=3">
+    <link id="apple-icon" rel="apple-touch-icon" href="/logo-max.png?v=3">
+    
+    <!-- Script para forçar o ícone remoto caso o local falhe -->
+    <script>
+      (function() {
+        var img = new Image();
+        // Link direto fornecido
+        var fallbackUrl = "https://lh3.googleusercontent.com/d/18gaX3A78fhDWjBsurVrGx_UgkxDUu2lr";
+        
+        img.onerror = function() {
+          console.warn("Favicon local falhou, alternando para URL externa.");
+          var favicon = document.getElementById('favicon');
+          var appleIcon = document.getElementById('apple-icon');
+          if (favicon) favicon.href = fallbackUrl;
+          if (appleIcon) appleIcon.href = fallbackUrl;
+        };
+        
+        // Tenta carregar a imagem local
+        img.src = "/logo-max.png?v=3";
+      })();
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {

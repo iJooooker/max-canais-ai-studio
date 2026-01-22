@@ -7,10 +7,14 @@ const Hero: React.FC = () => {
     <section id="inicio" className="relative bg-brand-dark min-h-[90vh] flex items-center justify-center overflow-hidden">
       {/* Background Image with Enhanced Overlay */}
       <div className="absolute inset-0 z-0">
+        {/* 
+            IMPORTANTE: A imagem deve estar localizada em public/banner-hero.png 
+            O caminho começa com / para indicar a raiz pública.
+        */}
         <img 
-          src="https://images.unsplash.com/photo-1522869635100-1f4d0601f3b4?q=60&w=1920&fm=webp&fit=crop" 
+          src="/banner-hero.png?v=2" 
           alt="Família assistindo TV na sala" 
-          className="w-full h-full object-cover opacity-30"
+          className="w-full h-full object-cover opacity-40"
           fetchPriority="high"
         />
         {/* Richer gradients */}

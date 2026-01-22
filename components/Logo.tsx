@@ -7,7 +7,8 @@ interface LogoProps {
 
 const Logo: React.FC<LogoProps> = ({ className = "", variant = 'default' }) => {
   const [imageError, setImageError] = useState(false);
-  const directLogoUrl = "/logo-max.png";
+  // Adicionando parâmetro de versão para evitar cache do navegador
+  const directLogoUrl = "/logo-max.png?v=2";
 
   // Tenta carregar a imagem local primeiro.
   // Se falhar, exibe o SVG recriado abaixo.
@@ -17,7 +18,7 @@ const Logo: React.FC<LogoProps> = ({ className = "", variant = 'default' }) => {
               src={directLogoUrl}
               alt="MAX CANAIS"
               className={`object-contain ${variant === 'footer' ? 'h-24' : 'h-full'} ${className}`}
-              onError={(e) => {
+              onError={() => {
                   setImageError(true);
               }}
           />
@@ -31,7 +32,6 @@ const Logo: React.FC<LogoProps> = ({ className = "", variant = 'default' }) => {
       <div className={`${variant === 'footer' ? 'w-24 h-20' : 'w-16 h-12'} flex items-center justify-center relative`}>
         <svg viewBox="0 0 100 80" className="w-full h-full overflow-visible drop-shadow-md">
           <defs>
-            {/* Gradiente Prateado para o Anel */}
             <linearGradient id="silverGradient" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#f3f4f6" />
               <stop offset="40%" stopColor="#9ca3af" />
@@ -39,21 +39,18 @@ const Logo: React.FC<LogoProps> = ({ className = "", variant = 'default' }) => {
               <stop offset="100%" stopColor="#4b5563" />
             </linearGradient>
             
-            {/* Gradiente Vermelho 3D para o Play */}
             <linearGradient id="red3D" x1="0%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" stopColor="#ff4d4d" />
               <stop offset="50%" stopColor="#dc2626" />
               <stop offset="100%" stopColor="#991b1b" />
             </linearGradient>
 
-            {/* Brilho do Play */}
             <linearGradient id="gloss" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="white" stopOpacity="0.4" />
               <stop offset="100%" stopColor="transparent" />
             </linearGradient>
           </defs>
 
-          {/* Anel Orbital (Parte de trás) */}
           <path 
             d="M 10 55 Q 50 85 90 55" 
             fill="none" 
@@ -62,7 +59,6 @@ const Logo: React.FC<LogoProps> = ({ className = "", variant = 'default' }) => {
             strokeLinecap="round"
             className="drop-shadow-sm"
           />
-          {/* Brilho no anel */}
            <path 
             d="M 12 56 Q 50 82 88 56" 
             fill="none" 
@@ -71,11 +67,9 @@ const Logo: React.FC<LogoProps> = ({ className = "", variant = 'default' }) => {
             opacity="0.6"
           />
 
-          {/* Ondas de Sinal (Wi-Fi) - Topo Direito */}
           <path d="M 65 15 Q 80 15 90 25" stroke="#dc2626" strokeWidth="4" fill="none" strokeLinecap="round" />
           <path d="M 72 8 Q 92 8 102 18" stroke="#dc2626" strokeWidth="4" fill="none" strokeLinecap="round" opacity="0.8" />
 
-          {/* Triângulo Play Principal (Corpo Vermelho) */}
           <path 
             d="M 35 20 L 75 45 L 35 70 Z" 
             fill="url(#red3D)" 
@@ -85,20 +79,17 @@ const Logo: React.FC<LogoProps> = ({ className = "", variant = 'default' }) => {
             className="drop-shadow-lg"
           />
           
-          {/* Triângulo Interno (Efeito de furo/profundidade) */}
           <path 
             d="M 45 35 L 60 45 L 45 55 Z" 
             fill="#7f1d1d" 
             opacity="0.3"
           />
           
-          {/* Reflexo Glossy no topo do triângulo */}
           <path 
              d="M 35 20 L 60 35 L 35 45 Z" 
              fill="url(#gloss)"
           />
 
-          {/* Anel Orbital (Parte da frente - sutil para dar efeito 3D de passar por baixo) */}
            <path 
             d="M 10 55 Q 20 60 30 62" 
             fill="none" 
@@ -109,7 +100,6 @@ const Logo: React.FC<LogoProps> = ({ className = "", variant = 'default' }) => {
         </svg>
       </div>
 
-      {/* Texto do Logo */}
       <div className={`flex flex-col justify-center leading-none ${variant === 'footer' ? 'items-center mt-2' : ''}`}>
         <div className="flex items-center tracking-tight">
           <span 

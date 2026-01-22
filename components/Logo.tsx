@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { LOGO_URL } from '../constants';
 
 interface LogoProps {
   className?: string;
@@ -8,25 +7,24 @@ interface LogoProps {
 
 const Logo: React.FC<LogoProps> = ({ className = "", variant = 'default' }) => {
   const [imageError, setImageError] = useState(false);
+  const directLogoUrl = "/logo-max.png";
 
-  // O link do Google Drive foi corrigido para o formato "uc?id=" para permitir acesso direto da imagem.
-  const directLogoUrl = "https://drive.google.com/uc?id=18gaX3A78fhDWjBsurVrGx_UgkxDUu2lr&export=view";
-
-  // Tenta carregar a imagem externa primeiro.
+  // Tenta carregar a imagem local primeiro.
+  // Se falhar, exibe o SVG recriado abaixo.
   if (!imageError) {
       return (
           <img 
               src={directLogoUrl}
               alt="MAX CANAIS"
               className={`object-contain ${variant === 'footer' ? 'h-24' : 'h-full'} ${className}`}
-              onError={() => {
+              onError={(e) => {
                   setImageError(true);
               }}
           />
       );
   }
 
-  // Fallback: Réplica Vetorizada (SVG) caso a imagem do Drive falhe ou não seja carregada
+  // Fallback: Réplica Vetorizada (SVG) idêntica à imagem original
   return (
     <div className={`flex items-center gap-2 select-none ${className} ${variant === 'footer' ? 'flex-col' : 'flex-row'}`}>
       {/* Icon Graphic */}
@@ -100,7 +98,7 @@ const Logo: React.FC<LogoProps> = ({ className = "", variant = 'default' }) => {
              fill="url(#gloss)"
           />
 
-          {/* Anel Orbital (Parte da frente) */}
+          {/* Anel Orbital (Parte da frente - sutil para dar efeito 3D de passar por baixo) */}
            <path 
             d="M 10 55 Q 20 60 30 62" 
             fill="none" 

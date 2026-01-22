@@ -14,15 +14,16 @@ const TargetAudience: React.FC = () => {
         <div className="flex flex-col lg:flex-row items-center gap-12">
           
           <div className="w-full lg:w-1/2 fade-up">
-             <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-800 group">
-               <img 
-                 src="https://lh3.googleusercontent.com/d/1-F4hSSzXzXeiqxKj3e8ZEEqYiIIDKsmj" 
-                 alt="Família feliz assistindo TV na sala" 
-                 className="w-full h-auto object-cover opacity-90 group-hover:scale-105 transition-transform duration-700"
+             <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-800 group aspect-video">
+               <video 
+                 src="https://lh3.googleusercontent.com/d/15eAM5MeIDZQzvGK8C9yb2g6UdzsC2dGZ"
+                 autoPlay={true}
+                 muted={true}
+                 loop={true}
+                 playsInline={true}
+                 preload="auto"
+                 className="w-full h-full object-cover"
                />
-               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent flex items-end p-8">
-                 <p className="text-white font-bold text-xl drop-shadow-lg">Entretenimento sem limites</p>
-               </div>
              </div>
           </div>
 

@@ -41,16 +41,16 @@ const Navbar: React.FC = () => {
     <nav 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-brand-dark/95 backdrop-blur-md shadow-lg py-3 border-b border-white/5' 
-          : 'bg-transparent py-5'
+          ? 'bg-brand-dark/95 backdrop-blur-md shadow-lg py-2 border-b border-white/5' 
+          : 'bg-transparent py-4'
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        {/* Logo */}
+        {/* Logo - Increased Height */}
         <a 
           href="#inicio" 
           onClick={(e) => handleNavClick(e, '#inicio')}
-          className="flex items-center gap-2 group z-50 cursor-pointer hover:opacity-90 transition-opacity"
+          className="flex items-center gap-2 group z-50 cursor-pointer hover:opacity-90 transition-opacity h-16"
         >
             <Logo />
         </a>

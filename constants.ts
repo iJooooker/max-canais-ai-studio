@@ -1,6 +1,7 @@
 import { Tv, Film, Smartphone, Wifi, CreditCard, MessageCircle, ShieldCheck, Trophy, Monitor, Clock, CheckCircle } from 'lucide-react';
 
 // Links convertidos para visualização direta
+// Se a imagem não carregar, o sistema usará automaticamente um logo desenhado como fallback.
 export const LOGO_URL = "https://drive.google.com/uc?export=view&id=18gaX3A78fhDWjBsurVrGx_UgkxDUu2lr";
 export const FAVICON_URL = "https://drive.google.com/uc?export=view&id=1QVDpASKZxOrdqO3ouGnrWgZXWswUGBT0";
 

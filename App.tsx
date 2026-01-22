@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import Benefits from './components/Benefits';
 import TargetAudience from './components/TargetAudience';
 import Pricing from './components/Pricing';
+import FAQ from './components/FAQ';
 import Testimonials from './components/Testimonials';
 import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer';
@@ -42,6 +43,7 @@ const App: React.FC = () => {
       <TargetAudience />
       <CostComparison />
       <Pricing />
+      <FAQ />
       <Testimonials />
       <FinalCTA />
       <Footer />

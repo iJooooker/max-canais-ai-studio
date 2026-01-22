@@ -14,7 +14,7 @@ const Logo: React.FC<LogoProps> = ({ className = "", variant = 'default' }) => {
   if (LOGO_URL && !imageError) {
       return (
           <img 
-              src={LOGO_URL}
+              src={https://drive.google.com/file/d/18gaX3A78fhDWjBsurVrGx_UgkxDUu2lr/view?usp=sharing}
               alt="MAX CANAIS"
               className={`object-contain ${variant === 'footer' ? 'h-24' : 'h-full'} ${className}`}
               onError={(e) => {

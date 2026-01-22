@@ -15,11 +15,15 @@ const TargetAudience: React.FC = () => {
           
           <div className="w-full lg:w-1/2 fade-up">
              <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-800 group">
-               {/* Imagem fixa de família feliz assistindo TV */}
+               {/* Imagem com fallback para o link do Google Drive caso o local falhe */}
                <img 
-                 src="https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=800&auto=format&fit=crop" 
+                 src="/banner-hero.png" 
                  alt="Família feliz assistindo TV na sala" 
                  className="w-full h-auto object-cover opacity-90 group-hover:scale-105 transition-transform duration-700"
+                 onError={(e) => {
+                   e.currentTarget.onerror = null; // Previne loop infinito
+                   e.currentTarget.src = "https://drive.google.com/uc?id=1-F4hSSzXzXeiqxKj3e8ZEEqYiIIDKsmj&export=view";
+                 }}
                />
                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent flex items-end p-8">
                  <p className="text-white font-bold text-xl drop-shadow-lg">Entretenimento sem limites</p>

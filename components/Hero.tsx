@@ -1,23 +1,55 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Button from './Button';
 import { PlayCircle } from 'lucide-react';
 
 const Hero: React.FC = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    // Forçar autoplay no carregamento
+    if (videoRef.current) {
+      videoRef.current.defaultMuted = true;
+      videoRef.current.muted = true; // Essencial para autoplay funcionar mesmo que o vídeo já seja mudo
+      videoRef.current.play().catch(error => {
+        console.warn("Autoplay do Hero bloqueado:", error);
+      });
+    }
+  }, []);
+
+  // Imagem de capa para evitar tela preta enquanto o vídeo carrega
+  const POSTER_IMAGE = "https://images.unsplash.com/photo-1593784991095-a20506948430?q=80&w=1920&auto=format&fit=crop";
+  
+  // Backup do vídeo no Google Drive (Link direto LH3 atualizado)
+  const VIDEO_BACKUP = "https://lh3.googleusercontent.com/d/15eAM5MeIDZQzvGK8C9yb2g6UdzsC2dGZ";
+
   return (
     <section id="inicio" className="relative bg-brand-dark min-h-[90vh] flex items-center justify-center overflow-hidden">
-      {/* Background Image with Enhanced Overlay */}
+      {/* Video Background with Overlay */}
       <div className="absolute inset-0 z-0">
-        {/* 
-            IMPORTANTE: A imagem deve estar localizada em public/banner-hero.png 
-            O caminho começa com / para indicar a raiz pública.
-        */}
-        <img 
-          src="/banner-hero.png?v=2" 
-          alt="Família assistindo TV na sala" 
+        <video
+          ref={videoRef}
           className="w-full h-full object-cover opacity-40"
-          fetchPriority="high"
-        />
-        {/* Richer gradients */}
+          poster={POSTER_IMAGE}
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          {/* Prioridade 1: Arquivo Local na raiz */}
+          <source src="/demo-max.mp4" type="video/mp4" />
+          
+          {/* Prioridade 2: Link de Backup do Drive */}
+          <source src={VIDEO_BACKUP} type="video/mp4" />
+
+          {/* Fallback visual final caso o vídeo não rode em navegadores antigos ou modo economia de dados */}
+          <img 
+            src={POSTER_IMAGE} 
+            alt="Background TV" 
+            className="w-full h-full object-cover"
+          />
+        </video>
+        
+        {/* Richer gradients for text readability */}
         <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-black/70"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-transparent"></div>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-brand-red/30 via-transparent to-transparent"></div>
